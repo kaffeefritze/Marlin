@@ -2579,7 +2579,6 @@
   //#define CHOPPER_TIMING_E5 CHOPPER_DEFAULT_12V
   //#define CHOPPER_TIMING_E6 CHOPPER_DEFAULT_12V
   //#define CHOPPER_TIMING_E7 CHOPPER_DEFAULT_12V
-
   /**
    * Monitor Trinamic drivers
    * for error conditions like overtemperature and short to ground.
@@ -2647,7 +2646,6 @@
    *
    * IMPROVE_HOMING_RELIABILITY tunes acceleration and jerk when
    * homing and adds a guard period for endstop triggering.
-   *
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    */
   //#define SENSORLESS_HOMING // StallGuard capable drivers only
@@ -3382,6 +3380,7 @@
 #if ENABLED(HOST_ACTION_COMMANDS)
   //#define HOST_PROMPT_SUPPORT
   //#define HOST_START_MENU_ITEM  // Add a menu item that tells the host to start
+
 #endif
 
 /**
