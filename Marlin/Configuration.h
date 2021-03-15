@@ -408,7 +408,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -458,7 +458,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
+#define HEATER_0_MAXTEMP 285
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -492,9 +492,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-	#define DEFAULT_Kp 24.93
-	#define DEFAULT_Ki 2.24
-	#define DEFAULT_Kd 69.46
+    #define DEFAULT_Kp 38.62
+    #define DEFAULT_Ki 4.59
+    #define DEFAULT_Kd 81.29
   #endif
 #endif // PIDTEMP
 
@@ -736,7 +736,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 410}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 412}
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -991,7 +991,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {-33.5,-3.5, 0 }
+#define NOZZLE_TO_PROBE_OFFSET {-40.5,12, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1161,15 +1161,15 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 290
-#define Y_BED_SIZE 255
+#define X_BED_SIZE 280
+#define Y_BED_SIZE 250
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define Y_MIN_POS -14
 #define Z_MIN_POS 0
-#define X_MAX_POS 300
-#define Y_MAX_POS Y_BED_SIZE
+#define X_MAX_POS X_BED_SIZE
+#define Y_MAX_POS Y_BED_SIZE + Y_MIN_POS
 #define Z_MAX_POS 300
 
 /**
@@ -1361,8 +1361,8 @@
    */
   #define G26_MESH_VALIDATION
   #if ENABLED(G26_MESH_VALIDATION)
-    #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
-    #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
+    #define MESH_TEST_NOZZLE_SIZE    0.6  // (mm) Diameter of primary nozzle.
+    #define MESH_TEST_LAYER_HEIGHT   0.3  // (mm) Default layer height for G26.
     #define MESH_TEST_HOTEND_TEMP  205    // (°C) Default nozzle temperature for G26.
     #define MESH_TEST_BED_TEMP      60    // (°C) Default bed temperature for G26.
     #define G26_XY_FEEDRATE         20    // (mm/s) Feedrate for G26 XY moves.
@@ -1482,7 +1482,7 @@
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-#define Z_PROBE_END_SCRIPT "G1 X173 Y125 F3000\nG1 Z0 F240"
+// #define Z_PROBE_END_SCRIPT "G1 X173 Y125 F3000\nG1 Z0 F240"
 
 // @section homing
 
